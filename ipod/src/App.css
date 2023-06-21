@@ -1,0 +1,47 @@
+#outer{
+    height: 100vh;
+    width:100vw;
+    margin-top:5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+.phone {
+    width: 30%;
+    height: 40rem;
+    background-color: rgb(216, 216, 212);
+    border-radius: 20px;
+    border: 2px solid rgb(216, 216, 212);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+    box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px -8px 10px -5px rgba(0, 0, 0, 0.2);
+  }
+  
+.display{
+    height: 19rem;
+    width:100%;
+    background-color: white;
+    border:3px solid black;
+    border-radius:12px;
+}
+.buttons{
+    height: 13rem;
+    width:14rem;
+    border:3px solid rgb(216,216,212);
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-around;
+}
+.okbutton{
+    width:4rem;
+    height:4rem;
+    margin-left:6%;
+    border:3px solid rgb(216,216,212);
+    background-color:rgb(216,216,212) ;
+}
