@@ -4,11 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Phone from './commponent/phoneCover'
 function App() {
-
+  
+ 
   return (
     <>
-    <Phone />
-      
+   <Phone />
     </>
   )
 }

@@ -5,6 +5,9 @@ import { faBackwardFast } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import Display from './display';
+import Game from './GameScreen';
+import Settings from './settings';
+import Coverflow from './coverflow';
 class Phone extends React.Component{
    constructor(){
     super();
@@ -12,6 +15,8 @@ class Phone extends React.Component{
       showMenu:false
     }
    }
+  
+   //show menu
    menuCard = ()=>{
     console.log('menu is pressed',this.state.showMenu);
     this.setState({
@@ -25,8 +30,9 @@ class Phone extends React.Component{
           <div className='container phone'>
 
             <div className='  display'>
-            {showMenu && <Display/>}
-             
+             {/* {showMenu && <Display    />} */}
+             <Coverflow/>
+                        
             </div>
             <div className="container  buttons">
   <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center">
