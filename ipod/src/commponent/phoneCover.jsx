@@ -5,9 +5,6 @@ import { faBackwardFast } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import Display from './display';
-import Game from './GameScreen';
-import Settings from './settings';
-import Coverflow from './coverflow';
 class Phone extends React.Component{
    constructor(){
     super();
@@ -30,8 +27,9 @@ class Phone extends React.Component{
           <div className='container phone'>
 
             <div className='  display'>
-             {/* {showMenu && <Display    />} */}
-             <Coverflow/>
+             
+             {showMenu && <Display/>}
+           
                         
             </div>
             <div className="container  buttons">
