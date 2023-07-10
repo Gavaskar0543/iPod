@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Display = () => {
+const Display = (props) => {
   
 
   return (

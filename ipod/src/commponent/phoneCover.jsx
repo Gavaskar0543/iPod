@@ -45,6 +45,12 @@ class Phone extends React.Component{
     pauseButton = ()=>{
       console.log('pause button is pressed');
     }
+
+    //mouse over
+    handleMouseOver = ()=>{
+      console.log('mouse over');
+    }
+  
   render(){
     const {showMenu} = this.state;
     return(
@@ -53,12 +59,12 @@ class Phone extends React.Component{
 
             <div className='  display'>
              
-             {showMenu && <Display/>}
+             {showMenu && <Display  forwardButton = {this.forwardButton}  backwardButton={this.backwardButton} pauseButton={this.pauseButton}  okButton={this.okButton} />}
            
                         
             </div>
-            <div className="container  buttons">
-  <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center">
+            <div className="container  buttons" >
+  <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center" >
   <div className="button" onClick={this.menuCard}  style={{ fontFamily:'verdana' }}>
   MENU
 </div>
