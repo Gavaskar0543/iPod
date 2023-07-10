@@ -16,10 +16,35 @@ class Phone extends React.Component{
    //show menu
    menuCard = ()=>{
     console.log('menu is pressed',this.state.showMenu);
+    
+    let action = this.state.showMenu;
+    
+    if(action){
     this.setState({
-      showMenu:true
+      showMenu :false
+    });
+  }else{
+    this.setState({
+      showMenu :true
     })
+  }
    }
+   //ok button
+    okButton = ()=>{
+      console.log('ok button is pressed');
+    }
+    //forward button
+    forwardButton = ()=>{
+      console.log('forward button is pressed');
+    }
+    //backward button
+    backwardButton = ()=>{
+      console.log('backward button is pressed');
+    }
+    //pause button
+    pauseButton = ()=>{
+      console.log('pause button is pressed');
+    }
   render(){
     const {showMenu} = this.state;
     return(
@@ -39,16 +64,16 @@ class Phone extends React.Component{
 </div>
   </div>
   <div className="d-flex flex-row justify-content-between">
-    <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-left">
+    <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-left" onClick={this.backwardButton}>
       <div><FontAwesomeIcon icon={faBackwardFast} style={{ color: '#061e47' }}/></div>
     </div>
-    <div className='rounded-circle okbutton border border-1'></div>
-    <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-right">
+    <div className='rounded-circle okbutton border border-1' onClick={this.okButton}></div>
+    <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-right" onClick={this.forwardButton}>
       <div>      <FontAwesomeIcon icon={faForwardFast} style={{ color: '#061e47' }} />
 </div>
     </div>
   </div>
-  <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-bottom">
+  <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-bottom" onClick={this.pauseButton}>
     <div><FontAwesomeIcon icon={faPlay} /> <FontAwesomeIcon icon={faPause} /></div>
   </div>
 </div>
