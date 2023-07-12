@@ -7,6 +7,7 @@ import { faPause } from '@fortawesome/free-solid-svg-icons';
 import Display from './display';
 class Phone extends React.Component{
   optionCount = -1
+  optionCount2 = 4;
 
    constructor(){
     super();
@@ -36,7 +37,8 @@ class Phone extends React.Component{
    }
    //ok button
     okButton = ()=>{
-      console.log('ok button is pressed');
+      const {selectedOption} = this.state;
+      console.log('selected option',selectedOption);
     }
     //forward button
     forwardButton = ()=>{
@@ -46,28 +48,35 @@ class Phone extends React.Component{
       this.optionCount = -1;
      }
      this.optionCount += 1;
-     
-  
-     console.log(this.state.selectedOption);
      selectedOption = this.product[this.optionCount];
      this.setState({
       selectedOption
      })
+  
+     console.log(this.state.selectedOption);
+     
      
     }
     //backward button
     backwardButton = ()=>{
       console.log('backward button is pressed');
+     let {selectedOption} = this.state;
+     if(this.optionCount2 == 0){
+      console.log(this.optionCount2)
+      this.optionCount2 = 4;
+     }
+     this.optionCount2 -= 1;
+     selectedOption = this.product[this.optionCount2];
+     this.setState({
+      selectedOption
+     })
     }
     //pause button
     pauseButton = ()=>{
       console.log('pause button is pressed');
     }
 
-    //mouse over
-    handleMouseOver = ()=>{
-      console.log('mouse over');
-    }
+  
 
   
   
@@ -83,7 +92,7 @@ class Phone extends React.Component{
            
                         
             </div>
-            <div className="container  buttons" onMouseOver={this.handleMouseOver} >
+            <div className="container  buttons"  >
   <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center" >
   <div className="button" onClick={this.menuCard}  style={{ fontFamily:'verdana' }}>
   MENU

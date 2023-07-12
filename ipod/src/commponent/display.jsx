@@ -1,21 +1,30 @@
-import React, { useState } from 'react';
-
-const Display = (selected) => {
+import React from 'react';
+import styles from '../styles/style.module.css'
+const Display = ({ selected }) => {
+  
   return (
     <div className='container ipodjs'>
       <h3 className='title-ipod'>iPod.js</h3>
-      <ul className='menu-list' type="none" >
+      <ul className='menu-list' type="none">
         <div>
-          <li >coverFlow</li>
+          <li style={selected === 'coverflow' ? {backgroundColor:'#068FFF',color:'red !important',border:'2px solid #068FFF',padding:'2px',borderRadius:'3px'} : {}}>
+            <a href="#" values="coverFlow">coverFlow</a>
+          </li>
         </div>
         <div>
-          <li>music</li>
+          <li style={selected === 'music' ? {backgroundColor:'#068FFF',color:'red !important',border:'2px solid #068FFF',padding:'2px',borderRadius:'3px'} : {}}>
+            <a href="#" values="music">music</a>
+          </li>
         </div>
         <div>
-          <li >Game</li>
+          <li style={selected === 'game' ?{backgroundColor:'#068FFF',color:'red !important',border:'2px solid #068FFF',padding:'2px',borderRadius:'3px'} : {}}>
+            <a href="#" values="game">game</a>
+          </li>
         </div>
         <div>
-          <li >setting</li>
+          <li style={selected === 'settings' ? { backgroundColor:'#068FFF' } : {}}>
+            <a href="#" values="settings">settings</a>
+          </li>
         </div>
       </ul>
     </div>

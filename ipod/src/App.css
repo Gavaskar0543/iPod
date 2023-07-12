@@ -134,3 +134,8 @@ border-bottom-left-radius:10px;
     align-items: center;
 }
 /*------End-----*/
+a{
+    text-decoration: none;
+    color:black;
+    text-transform: capitalize;
+}
