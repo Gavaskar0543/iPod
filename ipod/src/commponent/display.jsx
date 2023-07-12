@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-const Display = (props) => {
-  
-
+const Display = (selected) => {
   return (
     <div className='container ipodjs'>
       <h3 className='title-ipod'>iPod.js</h3>

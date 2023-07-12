@@ -6,12 +6,16 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import Display from './display';
 class Phone extends React.Component{
+  optionCount = -1
+
    constructor(){
     super();
     this.state={
-      showMenu:false
+      showMenu:false,
+      selectedOption : '',
     }
    }
+   product = ['coverflow','music','game','settings'];
   
    //show menu
    menuCard = ()=>{
@@ -25,7 +29,8 @@ class Phone extends React.Component{
     });
   }else{
     this.setState({
-      showMenu :true
+      showMenu :true,
+      
     })
   }
    }
@@ -35,7 +40,20 @@ class Phone extends React.Component{
     }
     //forward button
     forwardButton = ()=>{
-      console.log('forward button is pressed');
+      let {selectedOption} = this.state;
+     if(this.optionCount >= 3){
+      console.log(this.optionCount)
+      this.optionCount = -1;
+     }
+     this.optionCount += 1;
+     
+  
+     console.log(this.state.selectedOption);
+     selectedOption = this.product[this.optionCount];
+     this.setState({
+      selectedOption
+     })
+     
     }
     //backward button
     backwardButton = ()=>{
@@ -50,20 +68,22 @@ class Phone extends React.Component{
     handleMouseOver = ()=>{
       console.log('mouse over');
     }
+
+  
   
   render(){
-    const {showMenu} = this.state;
+    const {showMenu,selectedOption} = this.state;
     return(
       <div id="outer" className='container ' style={{height:"100%"}}>
           <div className='container phone'>
 
             <div className='  display'>
              
-             {showMenu && <Display  forwardButton = {this.forwardButton}  backwardButton={this.backwardButton} pauseButton={this.pauseButton}  okButton={this.okButton} />}
+             {showMenu && <Display selected={selectedOption} forwardButton = {this.forwardButton}  backwardButton={this.backwardButton} pauseButton={this.pauseButton}  okButton={this.okButton} />}
            
                         
             </div>
-            <div className="container  buttons" >
+            <div className="container  buttons" onMouseOver={this.handleMouseOver} >
   <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center" >
   <div className="button" onClick={this.menuCard}  style={{ fontFamily:'verdana' }}>
   MENU
