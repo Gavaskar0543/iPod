@@ -1,6 +1,8 @@
 import React from 'react';
+import Coverflow from './coverflow';
 import styles from '../styles/style.module.css'
-const Display = ({ selected }) => {
+const Display = ({ selected,showSelected }) => {
+
   
   return (
     <div className='container ipodjs'>
@@ -9,7 +11,9 @@ const Display = ({ selected }) => {
         <div>
           <li style={selected === 'coverflow' ? {backgroundColor:'#068FFF',color:'red !important',border:'2px solid #068FFF',padding:'2px',borderRadius:'3px'} : {}}>
             <a href="#" values="coverFlow">coverFlow</a>
+              {showSelected && <Coverflow/>}
           </li>
+ 
         </div>
         <div>
           <li style={selected === 'music' ? {backgroundColor:'#068FFF',color:'red !important',border:'2px solid #068FFF',padding:'2px',borderRadius:'3px'} : {}}>

@@ -1,10 +1,13 @@
-import React from 'react'
+import React ,{useEffect,useRef} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faForwardFast } from '@fortawesome/free-solid-svg-icons';
 import { faBackwardFast } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import Display from './display';
+import { Coverflow,Settings,GameScreen} from './commponent/index';
+import {Route,Routes} from 'react-router-dom';
+
 class Phone extends React.Component{
   optionCount = -1
   optionCount2 = 4;
@@ -14,8 +17,10 @@ class Phone extends React.Component{
     this.state={
       showMenu:false,
       selectedOption : '',
+      showOptionSelected:false
     }
    }
+  
    product = ['coverflow','music','game','settings'];
   
    //show menu
@@ -39,6 +44,9 @@ class Phone extends React.Component{
     okButton = ()=>{
       const {selectedOption} = this.state;
       console.log('selected option',selectedOption);
+      this.setState({
+        showOptionSelected:true
+      })
     }
     //forward button
     forwardButton = ()=>{
@@ -74,6 +82,9 @@ class Phone extends React.Component{
     //pause button
     pauseButton = ()=>{
       console.log('pause button is pressed');
+      this.setState({
+        showOptionSelected:false
+      })
     }
 
   
@@ -81,14 +92,21 @@ class Phone extends React.Component{
   
   
   render(){
-    const {showMenu,selectedOption} = this.state;
+    const {showMenu,selectedOption,showOptionSelected} = this.state;
     return(
+
+      <Routes>
+      
+      <Route path='/coverflow' element={<Coverflow /> } />
+      <Route path='/settings' element={<Settings />} />
+      <Route path='/GameScreen' element={<GameScreen /> } />
+    </Routes>
       <div id="outer" className='container ' style={{height:"100%"}}>
           <div className='container phone'>
 
             <div className='  display'>
              
-             {showMenu && <Display selected={selectedOption} forwardButton = {this.forwardButton}  backwardButton={this.backwardButton} pauseButton={this.pauseButton}  okButton={this.okButton} />}
+             {showMenu && <Display showSelected={showOptionSelected} selected={selectedOption} forwardButton = {this.forwardButton}  backwardButton={this.backwardButton} pauseButton={this.pauseButton}  okButton={this.okButton} />}
            
                         
             </div>
