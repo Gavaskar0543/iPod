@@ -5,7 +5,9 @@ import { faBackwardFast } from '@fortawesome/free-solid-svg-icons';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faPause } from '@fortawesome/free-solid-svg-icons';
 import Display from './display';
-import { Coverflow,Settings,GameScreen} from './commponent/index';
+import Coverflow from './coverflow';
+import Settings from './settings';
+import GameScreen from './GameScreen';
 import {Route,Routes} from 'react-router-dom';
 
 class Phone extends React.Component{
@@ -95,12 +97,7 @@ class Phone extends React.Component{
     const {showMenu,selectedOption,showOptionSelected} = this.state;
     return(
 
-      <Routes>
-      
-      <Route path='/coverflow' element={<Coverflow /> } />
-      <Route path='/settings' element={<Settings />} />
-      <Route path='/GameScreen' element={<GameScreen /> } />
-    </Routes>
+     
       <div id="outer" className='container ' style={{height:"100%"}}>
           <div className='container phone'>
 
