@@ -1,21 +1,19 @@
-import React from "react";
-import Coverflow from "./coverflow";
+import React from 'react'
 import styles from "../styles/style.module.css";
-import Settings from "./settings";
-import ShowMusic from "./ShowMusic";
-import GameScreen from './GameScreen'
-const Display = ({ selected, showSelected }) => {
+
+export default function ShowMusic({selected,showSelected}) {
+   
   return (
     <>
     {
       !showSelected ? (
         <div className="container ipodjs">
-        <h3 className="title-ipod">iPod.js</h3>
+        <h3 className="title-ipod">Music</h3>
         <ul className="menu-list" type="none">
           <div>
             <li
               style={
-                selected === "coverflow"
+                selected === "AllSongs"
                   ? {
                       backgroundColor: "#068FFF",
                       color: "red !important",
@@ -28,8 +26,8 @@ const Display = ({ selected, showSelected }) => {
                   : {}
               }
             >
-              <a href="#" values="coverFlow">
-                coverFlow
+              <a href="#" values="AllSongs">
+                All songs
               </a>
              
             </li>
@@ -37,7 +35,7 @@ const Display = ({ selected, showSelected }) => {
           <div>
             <li
               style={
-                selected === "music"
+                selected === "Artist"
                   ? {
                       backgroundColor: "#068FFF",
                       color: "red !important",
@@ -49,15 +47,15 @@ const Display = ({ selected, showSelected }) => {
                   : {}
               }
             >
-              <a href="#" values="music">
-                music
+              <a href="#" values="Artist">
+                Artist
               </a>
             </li>
           </div>
           <div>
             <li
               style={
-                selected === "game"
+                selected === "Album"
                   ? {
                       backgroundColor: "#068FFF",
                       color: "red !important",
@@ -69,35 +67,18 @@ const Display = ({ selected, showSelected }) => {
                   : {}
               }
             >
-              <a href="#" values="game">
-                game
+              <a href="#" values="Album">
+                Album
               </a>
             </li>
           </div>
-          <div>
-            <li
-              style={
-                selected === "settings" ?{
-                  backgroundColor: "#068FFF",
-                  color: "red !important",
-                  border: "2px solid #068FFF",
-                  padding: "2px",
-                  borderRadius: "3px",
-                  marginLeft :'-6%'
-                } : {}
-              }
-            >
-              <a href="#" values="settings">
-                settings
-              </a>
-            </li>
-          </div>
+         
+         
         </ul>
       </div>
       ) : (
       
-          selected == 'coverflow' && showSelected ? <Coverflow /> :selected == 'game' && showSelected ? <GameScreen /> : selected == 'settings' && showSelected ? <Settings/> : selected == 'music'  && showSelected ? <ShowMusic  selected={selected} showSelected={showSelected} /> :<Display/> 
-        
+        selected == 'Album' && showSelected ? <Coverflow /> :selected == 'game' && showSelected ? <GameScreen /> : selected == 'settings' && showSelected ? <Settings/> : <Display/> 
          
         
       )
@@ -106,7 +87,6 @@ const Display = ({ selected, showSelected }) => {
       
 
    </>
-  );
-};
+  )
+}
 
-export default Display;
