@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from "../styles/style.module.css";
+import Album from './Album';
 
 export default function ShowMusic({selected,showSelected}) {
-   
+   showSelected = false;
+   selected = ''
   return (
     <>
     {
@@ -78,7 +80,7 @@ export default function ShowMusic({selected,showSelected}) {
       </div>
       ) : (
       
-        selected == 'Album' && showSelected ? <Coverflow /> :selected == 'game' && showSelected ? <GameScreen /> : selected == 'settings' && showSelected ? <Settings/> : <Display/> 
+        selected == 'Album' && showSelected ? <Album />: <ShowMusic/> 
          
         
       )
