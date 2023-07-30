@@ -3,8 +3,9 @@ import styles from "../styles/style.module.css";
 import Album from './Album';
 
 export default function ShowMusic({selected,showSelected}) {
-   showSelected = false;
-   selected = ''
+
+
+   
   return (
     <>
     {
