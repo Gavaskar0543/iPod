@@ -107,8 +107,8 @@ class Phone extends React.Component{
            
                         
             </div>
-            <div className="container  buttons"  >
-  <div className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center" >
+            <div style={{cursor:'pointer'}} className="container  buttons"  >
+  <div  className="d-flex flex-column align-items-center justify-content-center rounded-circle button-center" >
   <div className="button" onClick={this.menuCard}  style={{ fontFamily:'verdana' }}>
   MENU
 </div>
